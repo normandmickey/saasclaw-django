@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Employees · saasclaw-django{% endblock %}
+
+{% block content %}
+<div class="page-stack">
+  <section class="hero-card">
+    <span class="eyebrow">Operations</span>
+    <h1>Manage employees</h1>
+    <p class="subtitle">Capture a basic employee directory with each person's name and address.</p>
+  </section>
+
+  <div class="employee-layout">
+    <section class="info-card">
+      <h2>Add employee</h2>
+      <form method="post" class="employee-form">
+        {% csrf_token %}
+        <label for="employee-name">Name</label>
+        <input id="employee-name" type="text" name="name" value="{{ values.name }}" required>
+
+        <label for="employee-address">Address</label>
+        <textarea id="employee-address" name="address" rows="4" required>{{ values.address }}</textarea>
+
+        {% if error %}
+        <p class="form-error">{{ error }}</p>
+        {% endif %}
+
+        <button type="submit">Save employee</button>
+      </form>
+    </section>
+
+    <section class="info-card">
+      <div class="section-heading">
+        <h2>Employee list</h2>
+        <span class="pill">{{ employees|length }} total</span>
+      </div>
+
+      {% if employees %}
+      <div class="employee-list">
+        {% for employee in employees %}
+        <article class="employee-item">
+          <h3>{{ employee.name }}</h3>
+          <p>{{ employee.address|linebreaksbr }}</p>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="empty-state">No employees have been added yet.</p>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}
