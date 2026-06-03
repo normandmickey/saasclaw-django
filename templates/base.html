@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}saasclaw-django{% endblock %}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="shell-header">
+    <div class="shell-inner">
+      <a class="brand" href="/">saasclaw-django</a>
+      <nav class="shell-nav">
+        <a href="/admin/">Admin</a>
+        <a href="/health/">Health</a>
+        {% if request.user.is_authenticated %}
+        <form method="post" action="/logout/" class="logout-form">
+          {% csrf_token %}
+          <button type="submit">Log out</button>
+        </form>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main class="shell-main">
+    <div class="shell-inner">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+</body>
+</html>

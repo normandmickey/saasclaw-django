@@ -1,0 +1,129 @@
+ :root {
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top, rgba(94,163,255,0.18), transparent 35%), #07111f;
+  color: #ecf3ff;
+}
+a { color: #8fb8ff; }
+.shell-inner {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+}
+.shell-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(148,163,184,0.16);
+  background: rgba(7,17,31,0.84);
+  backdrop-filter: blur(12px);
+}
+.shell-header .shell-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+.brand {
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #ecf3ff;
+}
+.shell-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.logout-form { margin: 0; }
+.shell-nav button, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #1f8f5f;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+}
+.button.secondary {
+  background: #15243a;
+}
+.shell-main {
+  padding: 40px 0 72px;
+}
+.hero-card, .info-card, .auth-card {
+  background: #0d1728;
+  border: 1px solid rgba(148,163,184,0.16);
+  border-radius: 20px;
+  padding: 24px;
+}
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8fb8ff;
+  font-weight: 800;
+  font-size: 0.78rem;
+}
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.02;
+  margin: 16px 0 12px;
+  letter-spacing: -0.05em;
+}
+.subtitle {
+  max-width: 760px;
+  color: #9fb0ca;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 16px;
+}
+.dashboard-main {
+  display: grid;
+  gap: 16px;
+}
+.auth-card {
+  max-width: 520px;
+}
+.auth-form label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 700;
+}
+.auth-form input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,0.2);
+  background: #07111f;
+  color: #ecf3ff;
+}
+.errorlist {
+  color: #ffb4b4;
+}
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

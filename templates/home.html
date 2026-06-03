@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}saasclaw-django Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-grid">
+  <aside class="info-card sidebar-card">
+    <span class="eyebrow">Workspace</span>
+    <h2>saasclaw-django</h2>
+    <p class="subtitle">Private starter dashboard with quick access to admin, health, and future app modules.</p>
+    <a class="button" href="/admin/">Open admin</a>
+  </aside>
+  <section class="dashboard-main">
+    <div class="hero-card">
+      <span class="eyebrow">Dashboard</span>
+      <h1>{{ project_name }}</h1>
+      <p class="subtitle">This starter theme is shaped like an internal dashboard so product and operations apps feel more at home from day one.</p>
+    </div>
+    <div class="card-grid">
+      <section class="info-card">
+        <h2>Users</h2>
+        <p>Manage staff access and permissions through Django admin.</p>
+      </section>
+      <section class="info-card">
+        <h2>Integrations</h2>
+        <p>Use this area later for connector status, jobs, or app-specific controls.</p>
+      </section>
+      <section class="info-card">
+        <h2>Runtime</h2>
+        <p>Your SaaSClaw deploy is live, private, and health-checkable.</p>
+        <a class="button secondary" href="/health/">View health</a>
+      </section>
+    </div>
+  </section>
+</div>
+{% endblock %}
