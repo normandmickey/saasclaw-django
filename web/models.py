@@ -17,3 +17,16 @@ class Employee(models.Model):
     def __str__(self):
         return str(self.name or f'Employee #{self.pk}')
 
+class HistoryLoad(models.Model):
+    name = models.CharField(max_length=255, blank=True)
+    client_name = models.CharField(max_length=255, blank=True)
+    ytd_load = models.IntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return str(self.name or f'History Load #{self.pk}')
+

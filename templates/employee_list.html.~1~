@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Employees{% endblock %}
+
+{% block content %}
+<div class="page-stack">
+  <section class="hero-card">
+    <span class="eyebrow">Resource</span>
+    <h1>Employees</h1>
+    <p class="subtitle">Create and manage employees for this project.</p>
+  </section>
+
+  <div class="card-grid">
+    <section class="info-card">
+      <h2>Add Employee</h2>
+      <form method="post" class="auth-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Employee</button>
+      </form>
+    </section>
+
+    <section class="info-card">
+      <h2>Employees</h2>
+      {% if items %}
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Title</th>
+          <th>Department</th>
+          <th>Hire Date</th>
+          <th>Is Active</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.phone }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.department }}</td>
+          <td>{{ item.hire_date }}</td>
+          <td>{{ item.is_active }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="subtitle">No employees yet.</p>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}

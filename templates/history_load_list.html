@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}History Loads{% endblock %}
+
+{% block content %}
+<div class="page-stack">
+  <section class="hero-card">
+    <span class="eyebrow">Resource</span>
+    <h1>History Loads</h1>
+    <p class="subtitle">Create and manage history loads for this project.</p>
+  </section>
+
+  <div class="standard-record-layout resource-layout">
+    <section class="info-card">
+      <h2>Add History Load</h2>
+      <form method="post" class="standard-record-form resource-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save History Load</button>
+      </form>
+    </section>
+
+    <section class="info-card">
+      <div class="section-heading">
+        <h2>History Loads</h2>
+        <span class="pill">{{ items|length }} total</span>
+      </div>
+      {% if items %}
+      <div class="standard-table-scroll table-scroll">
+        <table class="standard-table resource-table">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Client Name</th>
+            <th>Ytd Load</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.client_name }}</td>
+            <td>{{ item.ytd_load }}</td>
+            <td><a class="button secondary" href="{% url "history_load_edit" item.pk %}">Edit</a></td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p class="subtitle">No history loads yet.</p>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}
