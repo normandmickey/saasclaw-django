@@ -183,6 +183,47 @@ h1 {
 .errorlist {
   color: #ffb4b4;
 }
+.employee-table-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+  border: 1px solid rgba(148,163,184,0.14);
+  border-radius: 16px;
+  background: #07111f;
+}
+.employee-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+.employee-table th,
+.employee-table td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(148,163,184,0.12);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.employee-table thead th {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9fb0ca;
+  background: rgba(21,36,58,0.72);
+}
+.employee-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.employee-table tbody tr:hover {
+  background: rgba(143,184,255,0.04);
+}
+.employee-table .cell-active {
+  white-space: nowrap;
+}
+.employee-table-empty {
+  padding: 18px 16px;
+}
 @media (max-width: 900px) {
   .dashboard-grid,
   .employee-layout {
