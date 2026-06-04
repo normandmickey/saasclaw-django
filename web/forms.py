@@ -1,6 +1,7 @@
 from django import forms
 from .models import Employee
 from .models import HistoryLoad
+from .models import Task
 
 class EmployeeForm(forms.ModelForm):
     class Meta:
@@ -11,4 +12,9 @@ class HistoryLoadForm(forms.ModelForm):
     class Meta:
         model = HistoryLoad
         fields = ['name', 'client_name', 'ytd_load']
+
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['name']
 

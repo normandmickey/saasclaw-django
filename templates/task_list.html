@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block content %}
+<div class="page-stack">
+  <section class="hero-card">
+    <span class="eyebrow">Resource</span>
+    <h1>Tasks</h1>
+    <p class="subtitle">Create and manage tasks for this project.</p>
+  </section>
+
+  <div class="standard-record-layout resource-layout">
+    <section class="info-card">
+      <h2>Add Task</h2>
+      <form method="post" class="standard-record-form resource-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Task</button>
+      </form>
+    </section>
+
+    <section class="info-card">
+      <div class="section-heading">
+        <h2>Tasks</h2>
+        <span class="pill">{{ items|length }} total</span>
+      </div>
+      {% if items %}
+      <div class="standard-table-scroll table-scroll">
+        <table class="standard-table resource-table">
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td><a class="button secondary" href="{% url "task_edit" item.pk %}">Edit</a></td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p class="subtitle">No tasks yet.</p>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}

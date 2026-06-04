@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Employee
 from .models import HistoryLoad
+from .models import Task
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
@@ -11,4 +12,9 @@ class EmployeeAdmin(admin.ModelAdmin):
 class HistoryLoadAdmin(admin.ModelAdmin):
     list_display = ['name', 'client_name', 'ytd_load']
     search_fields = ['name', 'client_name']
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    search_fields = ['name']
 
