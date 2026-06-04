@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from web.views import health, home
+from web.views import employee_list
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -9,4 +10,5 @@ urlpatterns = [
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     path("health/", health, name="health"),
     path("", home, name="home"),
+    path("employees/", employee_list, name="employee_list"),
 ]
